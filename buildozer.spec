@@ -9,7 +9,7 @@ version = 0.1
 requirements = python3,kivy
 orientation = portrait
 fullscreen = 0
-android.permissions = INTERNET
+android.permissions = READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,READ_MEDIA_AUDIO
 android.api = 35
 android.minapi = 21
 
