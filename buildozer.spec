@@ -1,4 +1,5 @@
 [app]
+android.archs = arm64-v8a
 title = Juke Box
 package.name = jukebox
 package.domain = org.jukebox
