@@ -26,10 +26,13 @@ jobs:
             zlib1g-dev libncurses5-dev libncursesw5-dev \
             libtinfo6 cmake libffi-dev libssl-dev
 
-      - name: Accept Android SDK licenses
+      - name: Install Android SDK tools
         run: |
-          yes | sudo /home/runner/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          sudo /home/runner/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;37.0.0"
+          sudo apt-get install -y android-sdk
+          SDKMANAGER=$(find /usr -name sdkmanager -type f 2>/dev/null | head -1)
+          echo "sdkmanager: $SDKMANAGER"
+          yes | sudo "$SDKMANAGER" --licenses || true
+          sudo "$SDKMANAGER" "build-tools;37.0.0"
       - name: Install Buildozer
         run: |
           python -m pip install --upgrade pip
